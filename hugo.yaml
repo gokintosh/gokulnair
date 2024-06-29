@@ -1,0 +1,48 @@
+baseURL: ""
+languageCode: en-us
+title: Gokul Nair
+theme: PaperMod
+
+
+params:
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  homeInfoParams:
+    Title: Hi there 👋, welcome to my corner of internet.
+    Content: “Life is like a poorly documented codebase, confusing, messy, but with enough persistence, you can debug anything.”
+
+  socialIcons: # optional
+    - name: "github"
+      url: "https://github.com/gokintosh"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/gokulkannamballybalachandran/"
+    - name: "twitter"
+      url: "https://x.com/nairgokul1234"
+
+
+menu:
+  main:
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 30
+
+
+  
+
+
+
+
+# outputs:
+#   home:
+#     - HTML
+#     - RSS
+#     - JSON # necessary for search
