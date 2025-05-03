@@ -2,7 +2,8 @@
 title: "Supercharging Your PostgreSQL with Functions & Stored Procedures"
 date: 2025-01-01T12:00:00+00:00
 draft: false
-tags: ["PostgreSQL", "Database", "Programming"]
+tags: ["PostgreSQL", "Database"]
+categories: ["Programming"]
 ---
 
 

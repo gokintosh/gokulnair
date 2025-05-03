@@ -22,12 +22,5 @@
       <guid>//localhost:1313/tags/postgresql/</guid>
       <description></description>
     </item>
-    <item>
-      <title>Programming</title>
-      <link>//localhost:1313/tags/programming/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/programming/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>
