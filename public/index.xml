@@ -2,31 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gokul Nair</title>
-    <link>//localhost:1313/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Gokul Nair</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 May 2025 14:51:47 +0200</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Neo4j</title>
-      <link>//localhost:1313/posts/neo4j/</link>
-      <pubDate>Sat, 17 May 2025 14:51:47 +0200</pubDate>
-      <guid>//localhost:1313/posts/neo4j/</guid>
-      <description></description>
-    </item>
+    <lastBuildDate>Wed, 01 Jan 2025 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Supercharging Your PostgreSQL with Functions &amp; Stored Procedures</title>
-      <link>//localhost:1313/posts/postgresfunction/</link>
+      <link>http://localhost:1313/posts/postgresfunction/</link>
       <pubDate>Wed, 01 Jan 2025 12:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/postgresfunction/</guid>
+      <guid>http://localhost:1313/posts/postgresfunction/</guid>
       <description>Picture this: You’re juggling the same SQL queries day in and day out, feeling like Bill Murray in Groundhog Day. If only you had a way to wrap your repetitive queries into neatly packaged, reusable code blocks… Well, guess what? PostgreSQL has got your back with its Functions and Stored Procedures!&#xA;In this post, we’ll explore what these two can do for you, how to build them, and why they might just become your new best friends (no offense to your dog, of course).</description>
     </item>
     <item>
       <title>Archive</title>
-      <link>//localhost:1313/archives/</link>
+      <link>http://localhost:1313/archives/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/archives/</guid>
+      <guid>http://localhost:1313/archives/</guid>
       <description>archives</description>
     </item>
   </channel>

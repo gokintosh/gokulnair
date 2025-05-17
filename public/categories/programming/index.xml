@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on Gokul Nair</title>
-    <link>//localhost:1313/categories/programming/</link>
+    <link>http://localhost:1313/categories/programming/</link>
     <description>Recent content in Programming on Gokul Nair</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 Jan 2025 12:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Supercharging Your PostgreSQL with Functions &amp; Stored Procedures</title>
-      <link>//localhost:1313/posts/postgresfunction/</link>
+      <link>http://localhost:1313/posts/postgresfunction/</link>
       <pubDate>Wed, 01 Jan 2025 12:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/postgresfunction/</guid>
+      <guid>http://localhost:1313/posts/postgresfunction/</guid>
       <description>Picture this: You’re juggling the same SQL queries day in and day out, feeling like Bill Murray in Groundhog Day. If only you had a way to wrap your repetitive queries into neatly packaged, reusable code blocks… Well, guess what? PostgreSQL has got your back with its Functions and Stored Procedures!&#xA;In this post, we’ll explore what these two can do for you, how to build them, and why they might just become your new best friends (no offense to your dog, of course).</description>
     </item>
   </channel>
