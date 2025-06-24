@@ -1,5 +1,5 @@
 ---
-title: "Graphing the Future: Leveraging Neo4j and Spring Boot for Smarter Data Modeling - Part1(Introduction and local setup)"
+title: "Graphing the Future: Leveraging Neo4j and Spring Boot for Smarter Data Modeling - Part-1(Introduction and local setup)"
 date: 2025-05-15T11:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
