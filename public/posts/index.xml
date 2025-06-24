@@ -6,8 +6,16 @@
     <description>Recent content in Posts on Gokul Nair</description>
     <generator>Hugo -- 0.147.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jan 2025 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 May 2025 11:30:03 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graphing the Future: Leveraging Neo4j and Spring Boot for Smarter Data Modeling - Part1(Introduction and local setup)</title>
+      <link>//localhost:1313/posts/neo4j/</link>
+      <pubDate>Thu, 15 May 2025 11:30:03 +0000</pubDate>
+      <guid>//localhost:1313/posts/neo4j/</guid>
+      <description>&lt;p&gt;Recently at work, I had the opportunity to dive into a new product that deals with highly complex, hierarchical data schemas—deeply interconnected across multiple levels of business domains. To put it simply: imagine pulling structured data from physical documents, then transforming and presenting that data differently for different teams—each with their own use cases and logic.&lt;/p&gt;
+&lt;p&gt;Now, the fun (and frustration) really began when we had to handle these transformations. Some were done using custom functions, others using Java reflection (yes, you read it right😄, some teams use reflection!!).&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Supercharging Your PostgreSQL with Functions &amp; Stored Procedures</title>
       <link>//localhost:1313/posts/postgresfunction/</link>
