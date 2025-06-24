@@ -4,6 +4,11 @@ date: 2025-01-01T12:00:00+00:00
 draft: false
 tags: ["PostgreSQL", "Database"]
 categories: ["Programming"]
+author: "Me"
+# author: ["Me", "You"] # multiple authors
+showToc: true
+TocOpen: false
+UseHugoToc: true
 ---
 
 

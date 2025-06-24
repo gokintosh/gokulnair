@@ -6,15 +6,8 @@
     <description>Recent content on Gokul Nair</description>
     <generator>Hugo -- 0.147.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 May 2025 15:09:46 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2025 12:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Graphing the Future: Leveraging Neo4j and Spring Boot for Smarter Data Modeling</title>
-      <link>//localhost:1313/posts/neo4j/</link>
-      <pubDate>Sat, 17 May 2025 15:09:46 +0200</pubDate>
-      <guid>//localhost:1313/posts/neo4j/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;Work in Progress&#34; loading=&#34;lazy&#34; src=&#34;https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG1jaW9ienozdnAxM3l0bHE1c242NjhzczI1YjU2enJreDF3MnZ4YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VHOF8pfPZOt9p018zw/giphy.gif&#34;&gt;&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Supercharging Your PostgreSQL with Functions &amp; Stored Procedures</title>
       <link>//localhost:1313/posts/postgresfunction/</link>

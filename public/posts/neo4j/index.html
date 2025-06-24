@@ -5,10 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Graphing the Future: Leveraging Neo4j and Spring Boot for Smarter Data Modeling | Gokul Nair</title>
+<title>Graphing the Future: Leveraging Neo4j and Spring Boot for Smarter Data Modeling - Part1(Introduction and local setup) | Gokul Nair</title>
 <meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="description" content="Recently at work, I had the opportunity to dive into a new product that deals with highly complex, hierarchical data schemas—deeply interconnected across multiple levels of business domains. To put it simply: imagine pulling structured data from physical documents, then transforming and presenting that data differently for different teams—each with their own use cases and logic.
+Now, the fun (and frustration) really began when we had to handle these transformations. Some were done using custom functions, others using Java reflection (yes, you read it right😄, some teams use reflection!!).">
+<meta name="author" content="Me">
 <link rel="canonical" href="//localhost:1313/posts/neo4j/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="//localhost:1313/favicon.ico">
@@ -122,13 +123,19 @@
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Graphing the Future: Leveraging Neo4j and Spring Boot for Smarter Data Modeling
+      Graphing the Future: Leveraging Neo4j and Spring Boot for Smarter Data Modeling - Part1(Introduction and local setup)
     </h1>
-    <div class="post-meta"><span title='2025-05-17 15:09:46 +0200 CEST'>May 17, 2025</span>&nbsp;·&nbsp;0 min
+    <div class="post-meta"><span title='2025-05-15 11:30:03 +0000 +0000'>May 15, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Me
 
 </div>
   </header> 
-  <div class="post-content"><p><img alt="Work in Progress" loading="lazy" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG1jaW9ienozdnAxM3l0bHE1c242NjhzczI1YjU2enJreDF3MnZ4YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VHOF8pfPZOt9p018zw/giphy.gif"></p>
+
+  <div class="post-content"><p>Recently at work, I had the opportunity to dive into a new product that deals with highly complex, hierarchical data schemas—deeply interconnected across multiple levels of business domains. To put it simply: imagine pulling structured data from physical documents, then transforming and presenting that data differently for different teams—each with their own use cases and logic.</p>
+<p>Now, the fun (and frustration) really began when we had to handle these transformations. Some were done using custom functions, others using Java reflection (yes, you read it right😄, some teams use reflection!!).</p>
+<p>As the data became more tangled than cables on my desk setup, we realized relational databases just weren’t cutting it. Normalizing the data started feeling like playing Jenga on a rollercoaster. That’s when the team made the call to switch to a high perfomance graph database offered by a top cloud provider. And let me tell you—we never looked back.</p>
+<p>In this blog series, we’ll be exploring <strong>Neo4j</strong>—a powerful and developer-friendly graph database that’s trusted by organizations all over the world, including <strong>NASA</strong>. You can check out how NASA uses Neo4j for their critical data knowledge graph <a href="https://neo4j.com/blog/knowledge-graph/nasa-critical-data-knowledge-graph/">here</a>. But don’t worry—even though NASA uses it, learning Neo4j isn’t rocket science. It’s intuitive, elegant, and surprisingly easy to get started with.</p>
+<p>So fasten your seatbelts, fire up the thrusters, and let’s launch into the world of <strong>Neo4j</strong>! 🚀
+<img alt="Rocket Launch" loading="lazy" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXplNTdidmU0eTlyeTkxNHQ2c2R1c2Y5eGZsa3M3c3hqcnI2cTd5YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sGBMzyeEzKpySD74qv/giphy.gif"></p>
 
 
   </div>

@@ -9,7 +9,7 @@ params:
   ShowPostNavLinks: true
   homeInfoParams:
     Title: Hi there 👋, welcome to my corner of internet.
-    Content: “Life is like a poorly documented codebase, confusing, messy, but with enough persistence, you can debug anything.”
+    Content: “Life is like a poorly documented codebase, confusing, messy, but with enough persistence, you can debug anything.” ~ ChatGPT🤖 
 
   socialIcons: # optional
     - name: "github"
