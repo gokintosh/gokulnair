@@ -9,7 +9,7 @@ author: "Me"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
-draft: true
+draft: flase
 # hidemeta: false
 # comments: false
 # description: "Desc Text."
