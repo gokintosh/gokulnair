@@ -6,23 +6,16 @@
     <description>Recent content in Posts on Gokul Nair</description>
     <generator>Hugo -- 0.147.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 May 2025 11:30:03 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2025 12:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Graphing the Future: Leveraging Neo4j and Spring Boot for Smarter Data Modeling - Part1(Introduction and local setup)</title>
-      <link>//localhost:1313/posts/neo4j/</link>
-      <pubDate>Thu, 15 May 2025 11:30:03 +0000</pubDate>
-      <guid>//localhost:1313/posts/neo4j/</guid>
-      <description>&lt;p&gt;Recently at work, I had the opportunity to dive into a new product that deals with highly complex, hierarchical data schemas—deeply interconnected across multiple levels of business domains. To put it simply: imagine pulling structured data from physical documents, then transforming and presenting that data differently for different teams—each with their own use cases and logic.&lt;/p&gt;
-&lt;p&gt;Now, the fun (and frustration) really began when we had to handle these transformations. Some were done using custom functions, others using Java reflection (yes, you read it right😄, some teams use reflection!!).&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Supercharging Your PostgreSQL with Functions &amp; Stored Procedures</title>
       <link>//localhost:1313/posts/postgresfunction/</link>
       <pubDate>Wed, 01 Jan 2025 12:00:00 +0000</pubDate>
       <guid>//localhost:1313/posts/postgresfunction/</guid>
-      <description>&lt;p&gt;Picture this: You’re juggling the same SQL queries day in and day out, feeling like Bill Murray in &lt;em&gt;Groundhog Day&lt;/em&gt;. If only you had a way to &lt;em&gt;wrap&lt;/em&gt; your repetitive queries into neatly packaged, reusable code blocks… Well, guess what? &lt;strong&gt;PostgreSQL&lt;/strong&gt; has got your back with its &lt;strong&gt;Functions&lt;/strong&gt; and &lt;strong&gt;Stored Procedures&lt;/strong&gt;!&lt;/p&gt;
-&lt;p&gt;In this post, we’ll explore what these two can do for you, how to build them, and why they might just become your new best friends (no offense to your dog, of course).&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;tired-of-writing-the-same-sql-queries-over-and-over&#34;&gt;Tired of Writing the Same SQL Queries Over and Over?&lt;/h1&gt;
+&lt;p&gt;Imagine you&amp;rsquo;re stuck in a loop—executing the same SQL queries day in, day out. It feels a bit like Bill Murray in &lt;em&gt;Groundhog Day&lt;/em&gt;, doesn&amp;rsquo;t it? You find yourself copying and pasting nearly identical code across different parts of your application or repeatedly typing out similar commands during database maintenance.&lt;/p&gt;
+&lt;p&gt;What if you could bundle these repetitive tasks into reusable, maintainable, and efficient code blocks inside your database? Good news: &lt;strong&gt;PostgreSQL&lt;/strong&gt; makes this possible with &lt;strong&gt;Functions&lt;/strong&gt; and &lt;strong&gt;Stored Procedures&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
