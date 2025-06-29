@@ -67,7 +67,7 @@ In this blog, we will do the following by starting small:
 - Install **Neo4j Desktop** from [here](https://neo4j.com/download/)  
   OR  
 - Use Docker compose:
-```
+```yml
 version: '3.8'
 
 services:
@@ -105,7 +105,7 @@ Once we have ths project imported into an IDE of your choice lets connect the ba
 
 Similar to how we connect spring to any database, we need to configure application.yml file as the following:
 
-```
+```yml
 spring:
   neo4j:
     uri: bolt://localhost:7687
@@ -116,7 +116,7 @@ spring:
 #### ✅ Step 2: Create User Node and business logic to persist in db
 
 We will not run the backend yet. We will need to create Entities and business logic to propogate data to the database. So lets create simple user entity.
-```
+```java
 @Node
 @Data
 @NoArgsConstructor
@@ -136,7 +136,7 @@ The class above is quite similar to a typical entity class used in JPA/Hibernate
 We’ll dive deeper into this in the next blog post, where we’ll explore how data is represented in Neo4j. We’ll also implement custom queries to retrieve and add complex data. In addition, we’ll introduce the Cypher query language, which is designed specifically for working with graph data. Cypher is similar to SQL but optimized for expressing graph structures and relationships. With Cypher, you can easily create, read, update, and delete nodes and relationships using a simple and human-readable syntax.
 
 Let's define a Service class and a Repository interface to persist the user:
-```
+```java
 @Repository
 public interface UserRepository extends ReactiveNeo4jRepository<User, Long> {
     Mono<User> findByName(String name);
@@ -152,7 +152,7 @@ I highly recommend checking out this excellent [**tutorial**](https://medium.com
 
 As we have created the repository class for the User entity, lets create a service class to add business logic for saving and retreiving the user
 
-```
+```java
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -175,7 +175,7 @@ So far, we’ve added two methods in our service class — one to create a user 
 
 Alright, let’s go ahead and create a controller class to expose our API endpoints!
 
-```
+```java
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
@@ -203,7 +203,7 @@ so lets CURL to create a user node specifying name Gokul.
 >`curl -X POST "http://localhost:8080/users?name=Gokul"`
 
 We see the response from backend like this:
-```
+```json
 {"id":2,"name":"Gokul","following":[]}
 ```
 
