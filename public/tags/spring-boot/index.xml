@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Programming on Gokul Nair</title>
-    <link>//localhost:1313/categories/programming/</link>
-    <description>Recent content in Programming on Gokul Nair</description>
+    <title>Spring Boot on Gokul Nair</title>
+    <link>//localhost:1313/tags/spring-boot/</link>
+    <description>Recent content in Spring Boot on Gokul Nair</description>
     <generator>Hugo -- 0.147.3</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Jun 2025 11:30:03 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Real World Runs on Graphs!!📈 : Lets make users social again!! (Part 2)</title>
       <link>//localhost:1313/posts/neo4j2/</link>
@@ -23,17 +23,6 @@
       <description>&lt;h2 id=&#34;graph-database-what-and-how&#34;&gt;Graph database what and how?&lt;/h2&gt;
 &lt;p&gt;Recently at work, I had the opportunity to dive into a new product that deals with highly complex, hierarchical data schemas—deeply interconnected across multiple levels of business domains. To put it simply: imagine an ETL process pulling structured data from physical documents and presenting that data differently for different teams—each with their own use cases and logic.&lt;/p&gt;
 &lt;p&gt;Now, the fun (and frustration) really began when we start thinking about how to handle these transformations. Some were done using custom functions, others using Java reflection (yes..yes, you read it right, we use java reflection🙃).&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Supercharging Your PostgreSQL with Functions &amp; Stored Procedures</title>
-      <link>//localhost:1313/posts/postgresfunction/</link>
-      <pubDate>Sat, 15 Mar 2025 12:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/postgresfunction/</guid>
-      <description>&lt;h1 id=&#34;tired-of-writing-the-same-sql-queries-over-and-over&#34;&gt;Tired of Writing the Same SQL Queries Over and Over?&lt;/h1&gt;
-&lt;p&gt;Imagine you&amp;rsquo;re stuck in a loop—executing the same SQL queries day in, day out. It feels a bit like Bill Murray in &lt;em&gt;Groundhog Day&lt;/em&gt;, doesn&amp;rsquo;t it?
-&lt;img alt=&#34;Groundhog Day Gif&#34; loading=&#34;lazy&#34; src=&#34;https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2t2bWRoaTJqcGhweGJjajQ5eDdzbjRhcjQ1Z3lxOWhldDAzZG15ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/S9crjCfQXC78ST61iv/giphy.gif&#34;&gt;
-You find yourself copying and pasting nearly identical code across different parts of your application or repeatedly typing out similar commands during database maintenance.&lt;/p&gt;
-&lt;p&gt;What if you could bundle these repetitive tasks into reusable, maintainable, and efficient code blocks inside your database? Good news: &lt;strong&gt;PostgreSQL&lt;/strong&gt; makes this possible with &lt;strong&gt;Functions&lt;/strong&gt; and &lt;strong&gt;Stored Procedures&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -9,15 +9,19 @@ params:
   ShowPostNavLinks: true
   homeInfoParams:
     Title: Hi there 👋, welcome to my corner of internet.
-    Content: “Life is like a poorly documented codebase, confusing, messy, but with enough persistence, you can debug anything.” ~ ChatGPT🤖 
+    Content: I am **Gokul**, a software engineer at ICE/NYSE. Here you'll find my thoughts on a variety of topics—from my experience as a Java developer and the latest in AI technologies to some personal stories. I hope something here resonates with you.
 
   socialIcons: # optional
     - name: "github"
       url: "https://github.com/gokintosh"
     - name: "linkedin"
       url: "https://www.linkedin.com/in/gokulkannamballybalachandran/"
-    - name: "twitter"
+    - name: "x"
       url: "https://x.com/nairgokul1234"
+    - name: "medium"
+      url: "https://medium.com/@gokulkbalachandran"
+    - name: "email"
+      url: "mailto:gokulkbalachandran@gmail.com"
 
 
 menu:

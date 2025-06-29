@@ -5,10 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Graphing the Future: Leveraging Neo4j and Spring Boot for Smarter Data Modeling - Part1(Introduction and local setup) | Gokul Nair</title>
-<meta name="keywords" content="">
-<meta name="description" content="Recently at work, I had the opportunity to dive into a new product that deals with highly complex, hierarchical data schemas—deeply interconnected across multiple levels of business domains. To put it simply: imagine pulling structured data from physical documents, then transforming and presenting that data differently for different teams—each with their own use cases and logic.
-Now, the fun (and frustration) really began when we had to handle these transformations. Some were done using custom functions, others using Java reflection (yes, you read it right😄, some teams use reflection!!).">
+<title>Real World Runs on Graphs!!📈 : A Hands-On Intro to Neo4j (Part 1) | Gokul Nair</title>
+<meta name="keywords" content="Database, Spring boot, graph">
+<meta name="description" content="Graph database what and how?
+Recently at work, I had the opportunity to dive into a new product that deals with highly complex, hierarchical data schemas—deeply interconnected across multiple levels of business domains. To put it simply: imagine an ETL process pulling structured data from physical documents and presenting that data differently for different teams—each with their own use cases and logic.
+Now, the fun (and frustration) really began when we start thinking about how to handle these transformations. Some were done using custom functions, others using Java reflection (yes..yes, you read it right, we use java reflection🙃).">
 <meta name="author" content="Me">
 <link rel="canonical" href="//localhost:1313/posts/neo4j/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css" integrity="sha256-IhHKMWS&#43;eDACT2qtKzouUghDpk&#43;PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as="style">
@@ -123,27 +124,183 @@ Now, the fun (and frustration) really began when we had to handle these transfor
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Graphing the Future: Leveraging Neo4j and Spring Boot for Smarter Data Modeling - Part1(Introduction and local setup)
+      Real World Runs on Graphs!!📈 : A Hands-On Intro to Neo4j (Part 1)
     </h1>
-    <div class="post-meta"><span title='2025-05-15 11:30:03 +0000 +0000'>May 15, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Me
+    <div class="post-meta"><span title='2025-06-25 11:30:03 +0000 +0000'>June 25, 2025</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Me
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  <div class="post-content"><p>Recently at work, I had the opportunity to dive into a new product that deals with highly complex, hierarchical data schemas—deeply interconnected across multiple levels of business domains. To put it simply: imagine pulling structured data from physical documents, then transforming and presenting that data differently for different teams—each with their own use cases and logic.</p>
-<p>Now, the fun (and frustration) really began when we had to handle these transformations. Some were done using custom functions, others using Java reflection (yes, you read it right😄, some teams use reflection!!).</p>
-<p>As the data became more tangled than cables on my desk setup, we realized relational databases just weren’t cutting it. Normalizing the data started feeling like playing Jenga on a rollercoaster. That’s when the team made the call to switch to a high perfomance graph database offered by a top cloud provider. And let me tell you—we never looked back.</p>
-<p>In this blog series, we’ll be exploring <strong>Neo4j</strong>—a powerful and developer-friendly graph database that’s trusted by organizations all over the world, including <strong>NASA</strong>. You can check out how NASA uses Neo4j for their critical data knowledge graph <a href="https://neo4j.com/blog/knowledge-graph/nasa-critical-data-knowledge-graph/">here</a>. But don’t worry—even though NASA uses it, learning Neo4j isn’t rocket science. It’s intuitive, elegant, and surprisingly easy to get started with.</p>
-<p>So fasten your seatbelts, fire up the thrusters, and let’s launch into the world of <strong>Neo4j</strong>! 🚀
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#graph-database-what-and-how">Graph database what and how?</a></li>
+    <li><a href="#lets-build-instagrat">Lets build <code>InstaGrat</code>📷</a>
+      <ul>
+        <li><a href="#install-the-database--create-spring-boot-project">Install the database , create spring boot project</a></li>
+        <li><a href="#connect-backend-to-database">Connect backend to database</a></li>
+        <li><a href="#lets-test-calling-our-backend-api-">Lets test calling our backend API ☎️</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="graph-database-what-and-how">Graph database what and how?<a hidden class="anchor" aria-hidden="true" href="#graph-database-what-and-how">#</a></h2>
+<p>Recently at work, I had the opportunity to dive into a new product that deals with highly complex, hierarchical data schemas—deeply interconnected across multiple levels of business domains. To put it simply: imagine an ETL process pulling structured data from physical documents and presenting that data differently for different teams—each with their own use cases and logic.</p>
+<p>Now, the fun (and frustration) really began when we start thinking about how to handle these transformations. Some were done using custom functions, others using Java reflection (yes..yes, you read it right, we use java reflection🙃).</p>
+<p>We realized that once the volume of data gets bigger and bigger, It will be hard to model it in relational database and the normalization of this data will start feeling like playing Jenga on a rollercoaster. That’s when the team made the call to use a high perfomance graph database offered by a top cloud provider. And let me tell you—we never looked back.</p>
+<p>In this blog series, we’ll be exploring <em><strong>Neo4j</strong></em>—a powerful and developer-friendly graph database that’s trusted by organizations all over the world, including <em><strong>NASA</strong></em>. You can check out how NASA uses Neo4j for their critical data knowledge graph <a href="https://neo4j.com/blog/knowledge-graph/nasa-critical-data-knowledge-graph/"><strong>here</strong></a> . But don’t worry—even though NASA uses it, learning Neo4j isn’t rocket science. It’s intuitive, elegant, and surprisingly easy to get started with. We will build a simple yet futuristic social media using spring boot and Neo4j. This will help us practically understand how the graph database work.</p>
+<p><code>!! I assume that you are a software developer who is familiar with development fundamentals and have prior experince building java services</code></p>
+<p>So fasten your seatbelts, fire up the thrusters, and let’s launch into the world of <em><strong>Neo4j</strong></em>! 🚀
 <img alt="Rocket Launch" loading="lazy" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXplNTdidmU0eTlyeTkxNHQ2c2R1c2Y5eGZsa3M3c3hqcnI2cTd5YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sGBMzyeEzKpySD74qv/giphy.gif"></p>
+<h2 id="lets-build-instagrat">Lets build <code>InstaGrat</code>📷<a hidden class="anchor" aria-hidden="true" href="#lets-build-instagrat">#</a></h2>
+<p>We will be building the backend for a new fictional futuriatic social media platform called <strong>InstaGrat</strong>. Where people can create account, follow other users, post contenet and can also like and comment other posts(very futuristic right?😅). <em>We will keep it simple here. We will build a full fledged Social media in a separate <strong>AI</strong> series, where we will dive into AI concepts like <em><strong>RAG</strong></em> and <em><strong>MCP</strong></em>.</em>
+In this blog, we will do the following by starting small:</p>
+<ul>
+<li>Install the database , create spring boot project</li>
+<li>Connect backend to database</li>
+<li>Create Users</li>
+</ul>
+<h3 id="install-the-database--create-spring-boot-project">Install the database , create spring boot project<a hidden class="anchor" aria-hidden="true" href="#install-the-database--create-spring-boot-project">#</a></h3>
+<h4 id="-step-1-neo4j-installation-">✅ Step 1: Neo4j Installation 📁<a hidden class="anchor" aria-hidden="true" href="#-step-1-neo4j-installation-">#</a></h4>
+<ul>
+<li>Install <strong>Neo4j Desktop</strong> from <a href="https://neo4j.com/download/">here</a><br>
+OR</li>
+<li>Use Docker compose:</li>
+</ul>
+<pre tabindex="0"><code>version: &#39;3.8&#39;
+
+services:
+  neo4j:
+    image: neo4j:5.16
+    container_name: instagratdb
+    ports:
+      - &#34;7474:7474&#34;  
+      - &#34;7687:7687&#34;  
+    environment:
+      - NEO4J_AUTH=yourusername/yourpassword          #more than or equals 8 characters
+    volumes:
+      - neo4j_data:/data
+
+volumes:
+  neo4j_data:
+</code></pre><h4 id="-step-2-run-docker-container-">✅ Step 2: Run docker container 🐳<a hidden class="anchor" aria-hidden="true" href="#-step-2-run-docker-container-">#</a></h4>
+<p>you can now run the docker compose script. Once the db container starts, access the port <code>http://0.0.0.0:7474/browser/</code>, provide the above username password, and login. If everything goes right you will navigate to the neo4j dashboard UI.</p>
+<p>If you click at the database icon in the top left of the left panel, we could see there is a default database which is neo4j. We will use this database for this tutorial. But feel free to play with creating new database and changing db configs that suits you.</p>
+<p><strong>congrats!!</strong> we have the database up and running!! Now lest create a spring boot project from <a href="https://start.spring.io/"><strong>spring initializer</strong></a>. We will use the following dependencies to create this backend.</p>
+<ul>
+<li>Spring Reactive Web</li>
+<li>Spring Data Neo4j</li>
+<li>Lombok</li>
+</ul>
+<p>Once we have ths project imported into an IDE of your choice lets connect the backend to the database.</p>
+<h3 id="connect-backend-to-database">Connect backend to database<a hidden class="anchor" aria-hidden="true" href="#connect-backend-to-database">#</a></h3>
+<h4 id="-step-1-cofigure-backend-to-connect-local-database-">✅ Step 1: cofigure backend to connect local database 💿<a hidden class="anchor" aria-hidden="true" href="#-step-1-cofigure-backend-to-connect-local-database-">#</a></h4>
+<p>Similar to how we connect spring to any database, we need to configure application.yml file as the following:</p>
+<pre tabindex="0"><code>spring:
+  neo4j:
+    uri: bolt://localhost:7687
+    authentication:
+      username: yourusername
+      password: yourpassword  
+</code></pre><h4 id="-step-2-create-user-node-and-business-logic-to-persist-in-db">✅ Step 2: Create User Node and business logic to persist in db<a hidden class="anchor" aria-hidden="true" href="#-step-2-create-user-node-and-business-logic-to-persist-in-db">#</a></h4>
+<p>We will not run the backend yet. We will need to create Entities and business logic to propogate data to the database. So lets create simple user entity.</p>
+<pre tabindex="0"><code>@Node
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class User {
+    @Id @GeneratedValue
+    private Long id;
+    private String name;
+
+    @Relationship(type = &#34;FOLLOWS&#34;, direction = Relationship.Direction.OUTGOING)
+    private List&lt;User&gt; following = new ArrayList&lt;&gt;();
+}
+</code></pre><p>The class above is quite similar to a typical entity class used in JPA/Hibernate. However, you&rsquo;ll notice some different annotations like <em><strong>@Node</strong></em> and <em><strong>@Relationship</strong></em>. For now, you can think of these as the building blocks of a graph. Nodes represent the data elements in the graph and hold the properties of the entity. Relationships, on the other hand, define the logical connections between nodes. They also store properties such as the source (from) node and the target (to) node.</p>
+<p>We’ll dive deeper into this in the next blog post, where we’ll explore how data is represented in Neo4j. We’ll also implement custom queries to retrieve and add complex data. In addition, we’ll introduce the Cypher query language, which is designed specifically for working with graph data. Cypher is similar to SQL but optimized for expressing graph structures and relationships. With Cypher, you can easily create, read, update, and delete nodes and relationships using a simple and human-readable syntax.</p>
+<p>Let&rsquo;s define a Service class and a Repository interface to persist the user:</p>
+<pre tabindex="0"><code>@Repository
+public interface UserRepository extends ReactiveNeo4jRepository&lt;User, Long&gt; {
+    Mono&lt;User&gt; findByName(String name);
+}
+</code></pre><p>There’s nothing fancy here — we’re simply extending the ReactiveNeo4jRepository&lt;T, ID&gt; interface from Spring Data Neo4j and defining a reactive, non-blocking CRUD operation findByName() that returns a Mono of User.</p>
+<p>Some of you might be new to reactive programming. I initially thought of covering the basics here, but to be honest, it&rsquo;s a vast topic on its own. It might take some time to get familiar with it at first, but once you get the hang of it, it can do wonders for your backend.</p>
+<p>I highly recommend checking out this excellent <a href="https://medium.com/simform-engineering/deep-dive-into-reactive-programming-with-spring-boot-d62cae63bb03"><strong>tutorial</strong></a> on Medium for a deeper dive.</p>
+<p>As we have created the repository class for the User entity, lets create a service class to add business logic for saving and retreiving the user</p>
+<pre tabindex="0"><code>@Service
+@RequiredArgsConstructor
+public class UserService {
+
+    private final UserRepository userRepository;
+
+    public Mono&lt;AppUser&gt; createUser(String name) {
+        AppUser user = new AppUser();
+        user.setName(name);
+        return userRepository.save(user);
+    }
+
+    public Flux&lt;AppUser&gt; getAllUsers() {
+        return userRepository.findAll();
+    }
+}
+</code></pre><p>So far, we’ve added two methods in our service class — one to create a user and another to fetch all the users from the database. In the next post, we’ll look at how to get a single user along with their connected nodes. We’ll also explore how users can follow or unfollow others, how to like, comment, and create posts. Plus, we’ll dive into how to customize relationships to build better connections between nodes.</p>
+<p>Alright, let’s go ahead and create a controller class to expose our API endpoints!</p>
+<pre tabindex="0"><code>@RestController
+@RequestMapping(&#34;/users&#34;)
+@RequiredArgsConstructor
+public class UserController {
+
+    private final UserService userService;
+
+    @PostMapping
+    public Mono&lt;User&gt; createUser(@RequestParam String name) {
+        return userService.createUser(name);
+    }
+
+    @GetMapping
+    public Flux&lt;User&gt; getAllUsers() {
+        return userService.getAllUsers();
+    }
+}
+</code></pre><h3 id="lets-test-calling-our-backend-api-">Lets test calling our backend API ☎️<a hidden class="anchor" aria-hidden="true" href="#lets-test-calling-our-backend-api-">#</a></h3>
+<p>Now we have the endpoints, lets test it using any http tool, creating a user and also retreiving it.</p>
+<p>so lets CURL to create a user node specifying name Gokul.</p>
+<blockquote>
+<p><code>curl -X POST &quot;http://localhost:8080/users?name=Gokul&quot;</code></p></blockquote>
+<p>We see the response from backend like this:</p>
+<pre tabindex="0"><code>{&#34;id&#34;:2,&#34;name&#34;:&#34;Gokul&#34;,&#34;following&#34;:[]}
+</code></pre><p>We could also check this visiting the local Neo4j dashboard at <code>http://0.0.0.0:7474/browser/</code>.</p>
+<p>Which means that the backend has created a user with name Gokul and with an Id 2. Currently the followers list is empty. But As I said earlier in the next blog we will be going to write custom Cypher query for advanced operations and refactor the code to allign with latest development principles.</p>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>🎉🥳 Congratulations!! We’ve officially laid the foundation for our social media app! 🚀 It’s just the beginning, and we’ve got a long journey ahead before we can build anything truly exciting and practical. But hey, every big adventure starts with a small step, right? 😉</p>
+<p>So, I’ll wrap up this blog here. We’ve covered quite a bit today! You can find all the code for this part here 👉 <a href="https://github.com/gokintosh/InstaGrat/tree/part1"><strong>github</strong></a>.</p>
+<p>The next part of this series will be available <a href=""><strong>here</strong></a> as soon as it’s ready. Stay tuned — it’s coming soon!</p>
+<p>Until then, may the code be with you. ✨👨‍💻
+<img alt="yodha" loading="lazy" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGx5ZWdvaW5rMDc5bTgwb2dqZTlldnU4dm9vaHp6d3phdGhzZDMxZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7qDK5J5Uerg3atJ6/giphy.gif"></p>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="//localhost:1313/tags/database/">Database</a></li>
+      <li><a href="//localhost:1313/tags/spring-boot/">Spring Boot</a></li>
+      <li><a href="//localhost:1313/tags/graph/">Graph</a></li>
     </ul>
 <nav class="paginav">
+  <a class="prev" href="//localhost:1313/posts/neo4j2/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Real World Runs on Graphs!!📈 : Lets make users social again!! (Part 2)</span>
+  </a>
   <a class="next" href="//localhost:1313/posts/postgresfunction/">
     <span class="title">Next »</span>
     <br>

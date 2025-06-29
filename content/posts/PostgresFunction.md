@@ -12,7 +12,9 @@ UseHugoToc: true
 
 # Tired of Writing the Same SQL Queries Over and Over?
 
-Imagine you're stuck in a loop—executing the same SQL queries day in, day out. It feels a bit like Bill Murray in *Groundhog Day*, doesn't it? You find yourself copying and pasting nearly identical code across different parts of your application or repeatedly typing out similar commands during database maintenance.
+Imagine you're stuck in a loop—executing the same SQL queries day in, day out. It feels a bit like Bill Murray in *Groundhog Day*, doesn't it?
+![Groundhog Day Gif](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2t2bWRoaTJqcGhweGJjajQ5eDdzbjRhcjQ1Z3lxOWhldDAzZG15ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/S9crjCfQXC78ST61iv/giphy.gif)
+You find yourself copying and pasting nearly identical code across different parts of your application or repeatedly typing out similar commands during database maintenance.
 
 What if you could bundle these repetitive tasks into reusable, maintainable, and efficient code blocks inside your database? Good news: **PostgreSQL** makes this possible with **Functions** and **Stored Procedures**.
 
