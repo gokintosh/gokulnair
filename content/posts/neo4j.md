@@ -55,7 +55,7 @@ So fasten your seatbelts, fire up the thrusters, and let’s launch into the wor
 
 ## Lets build `InstaGrat`📷
 
-We will be building the backend for a new fictional futuriatic social media platform called **InstaGrat**. Where people can create account, follow other users, post contenet and can also like and comment other posts(very futuristic right?😅). *We will keep it simple here. We will build a full fledged Social media in a separate **AI** series, where we will dive into AI concepts like ***RAG*** and ***MCP***.*
+We will be building the backend for a new fictional futuriatic social media platform called **InstaGrat**. Where people can create account, follow other users, post content and can also like and comment other posts(very futuristic right?😅). *We will keep it simple here. We will build a full fledged Social media in a separate **AI** series, where we will dive into AI concepts like ***RAG*** and ***MCP***.*
 In this blog, we will do the following by starting small:
 - Install the database , create spring boot project
 - Connect backend to database
