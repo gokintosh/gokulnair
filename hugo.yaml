@@ -22,6 +22,8 @@ params:
       url: "https://medium.com/@gokulkbalachandran"
     - name: "email"
       url: "mailto:gokulkbalachandran@gmail.com"
+    - name: "CV"
+      url: "http://e.pc.cd/H72y6alK"
 
 
 menu:

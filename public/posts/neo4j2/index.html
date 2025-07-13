@@ -459,7 +459,7 @@ We don’t need any extra information apart from the user and post IDs. So, no D
 <p>Instead, we directly form a relationship in the database between the user who liked and the post that was liked.</p>
 <p>📍 Endpoint Structure</p>
 <p>The endpoint for liking a post looks like this:</p>
-<pre tabindex="0"><code>POST http://localhost:8080/likes/{userId}/like/{postId}
+<pre tabindex="0"><code class="language-curl" data-lang="curl">POST http://localhost:8080/likes/{userId}/like/{postId}
 </code></pre><p>This clearly conveys the action:
 User {userId} likes Post {postId}.</p>
 <p>🔧 Controller</p>
