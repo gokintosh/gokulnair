@@ -418,7 +418,7 @@ Instead, we directly form a relationship in the database between the user who li
 📍 Endpoint Structure
 
 The endpoint for liking a post looks like this:
-```
+```curl
 POST http://localhost:8080/likes/{userId}/like/{postId}
 ```
 
