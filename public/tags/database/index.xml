@@ -9,11 +9,11 @@
     <lastBuildDate>Sat, 28 Jun 2025 11:30:03 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/tags/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Real World Runs on Graphs!!📈 : Lets make users social again!! (Part 2)</title>
+      <title>Real World Runs on Graphs!!📈 : Lets Make Users Social Again!! (Part 2)</title>
       <link>//localhost:1313/posts/neo4j2/</link>
       <pubDate>Sat, 28 Jun 2025 11:30:03 +0000</pubDate>
       <guid>//localhost:1313/posts/neo4j2/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;Soon!!&#34; loading=&#34;lazy&#34; src=&#34;https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnN6N3poaDRtNXg4eGFlZWUwaTV1MzRpNm9xY2JmaGloOXh6OWZyOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dgVQkiSSL4TsZDrXYx/giphy.gif&#34;&gt;&lt;/p&gt;</description>
+      <description>In this post, we’ll implement core social media features such as allowing users to follow others, create posts, and interact with them through likes and comments. Additionally, we’ll set up a vector-based document storage system, which will serve as the foundation for integrating Retrieval-Augmented Generation (RAG) capabilities into our application.</description>
     </item>
     <item>
       <title>Real World Runs on Graphs!!📈 : A Hands-On Intro to Neo4j (Part 1)</title>

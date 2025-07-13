@@ -9,7 +9,7 @@ params:
   ShowPostNavLinks: true
   homeInfoParams:
     Title: Hi there 👋, welcome to my corner of internet.
-    Content: I am **Gokul**, a software engineer at ICE/NYSE. Here you'll find my thoughts on a variety of topics—from my experience as a Java developer and the latest in AI technologies to some personal stories. I hope something here resonates with you.
+    Content: I am **Gokul**, a software engineer at ICE/NYSE. This blog is an inspiration from [learn in Public](https://www.swyx.io/learn-in-public). Here you'll find my thoughts on a variety of topics—from my experience as a Java developer and the latest in AI technologies to some personal stories. I hope something here resonates with you. 
 
   socialIcons: # optional
     - name: "github"

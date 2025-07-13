@@ -55,7 +55,7 @@ So fasten your seatbelts, fire up the thrusters, and let’s launch into the wor
 
 ## Lets build `InstaGrat`📷
 
-We will be building the backend for a new fictional futuriatic social media platform called **InstaGrat**. Where people can create account, follow other users, post content and can also like and comment other posts(very futuristic right?😅). *We will keep it simple here. We will build a full fledged Social media in a separate **AI** series, where we will dive into AI concepts like ***RAG*** and ***MCP***.*
+We will be building the backend for a new fictional futuristic social media platform called **InstaGrat**, where people can create accounts, follow other users, post content, and also like and comment on other posts (very futuristic, right? 😅). In upcoming blog posts, we will dive into AI concepts like [**RAG (Retrieval-Augmented Generation)**](https://aws.amazon.com/what-is/retrieval-augmented-generation/) and [**MCP (Model Context Protocol)**](https://modelcontextprotocol.io/introduction), and explore how to leverage them to make the best out of our service!
 In this blog, we will do the following by starting small:
 - Install the database , create spring boot project
 - Connect backend to database
@@ -217,7 +217,7 @@ Which means that the backend has created a user with name Gokul and with an Id 2
 
 So, I’ll wrap up this blog here. We’ve covered quite a bit today! You can find all the code for this part here 👉 [**github**](https://github.com/gokintosh/InstaGrat/tree/part1).
 
-The next part of this series will be available [**here**]() as soon as it’s ready. Stay tuned — it’s coming soon!
+The next part of this series will be available as soon as it’s ready. Stay tuned — it’s coming soon!
 
 Until then, may the code be with you. ✨👨‍💻
 ![yodha](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGx5ZWdvaW5rMDc5bTgwb2dqZTlldnU4dm9vaHp6d3phdGhzZDMxZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7qDK5J5Uerg3atJ6/giphy.gif)
