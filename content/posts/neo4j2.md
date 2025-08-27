@@ -5,7 +5,7 @@ date: 2025-08-01T11:30:03+00:00
 # aliases: ["/first"]
 tags: ["Database","Spring boot","Graph"]
 categories: ["Programming"]
-author: "Me"
+author: "Me, spelled by ChatGPT"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false

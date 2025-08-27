@@ -4,7 +4,7 @@ date: 2025-03-15T12:00:00+00:00
 draft: false
 tags: ["PostgreSQL", "Database"]
 categories: ["Programming"]
-author: "Me"
+author: "Me, spelled by ChatGPT"
 showToc: true
 TocOpen: false
 UseHugoToc: true
