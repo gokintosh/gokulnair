@@ -1,6 +1,6 @@
 ---
-title: "Real World Runs on Graphs!!📈 : In the Beginning, There Was BROK 🔥!! (Part 2)"
-date: 2025-09-01T11:30:03+00:00
+title: "Real World Runs on Graphs!!📈 : In the begining there was BROK!! (Part 3(final))"
+date: 2025-08-01T11:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
 tags: ["Database","Spring boot","Graph"]
