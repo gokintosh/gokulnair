@@ -8,15 +8,7 @@
 <title>Real World Runs on Graphs!!📈 : In the begining there was BROK!! (Part 3(final)) | Gokul Nair</title>
 <meta name="keywords" content="Database, Spring boot, Graph">
 <meta name="description" content="A quick rewind!!
-In the previous post, we implemented the follow functionality between users, comment posts, and also like functionality. Also we learned about cypher language and how to use Pinecone vector storage for indexing data for similarity search for our RAG. In this post, we will look into:
-
-Indexing the post data into our vector store.
-Will create the application with an LLM.
-create the ASK BROK functionality to know various details about the friends posts.
-
-Large Language Model🤖
-Large Language Models (LLMs) like Mistral’s Open Mistral 7B bring the power of natural language understanding and generation into your applications. Instead of manually writing complex rules for summarization, question answering, or sentiment analysis, you can simply provide a prompt and let the model handle the heavy lifting.
-For example, if you want to summarize posts and analyze sentiment, a traditional approach would require separate steps:">
+In my last post, we built some of the core social features for our app — users can now follow each other, comment on posts, and hit that like button. Along the way, I also shared a bit about working with Cypher (Neo4j’s query language) and how we used Pinecone as a vector store to index our data for similarity search, which is an important piece for our RAG (Retrieval-Augmented Generation) setup.">
 <meta name="author" content="Code by Me, Spelled by ChatGPT">
 <link rel="canonical" href="//localhost:1313/posts/neo4j3/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
@@ -133,7 +125,7 @@ For example, if you want to summarize posts and analyze sentiment, a traditional
     <h1 class="post-title entry-hint-parent">
       Real World Runs on Graphs!!📈 : In the begining there was BROK!! (Part 3(final))
     </h1>
-    <div class="post-meta"><span title='2025-08-01 11:30:03 +0000 +0000'>August 1, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Code by Me, Spelled by ChatGPT
+    <div class="post-meta"><span title='2025-08-25 11:30:03 +0000 +0000'>August 25, 2025</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Code by Me, Spelled by ChatGPT
 
 </div>
   </header> <div class="toc">
@@ -148,7 +140,10 @@ For example, if you want to summarize posts and analyze sentiment, a traditional
     <li><a href="#large-language-model">Large Language Model🤖</a></li>
     <li><a href="#getting-started-with-mistral-ai">Getting Started with Mistral AI</a></li>
     <li><a href="#adding-the-configs-to-applicationyaml-file">Adding the configs to application.yaml file</a></li>
+    <li><a href="#add-required-dependencies-to-gradle">Add required dependencies to gradle:</a></li>
+    <li><a href="#index-posts-in-pinecone-vector-storage">Index posts in pinecone vector storage</a></li>
     <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#-whats-next">🚀 What’s Next?</a></li>
   </ul>
 </nav>
         </div>
@@ -156,12 +151,14 @@ For example, if you want to summarize posts and analyze sentiment, a traditional
 </div>
 
   <div class="post-content"><h2 id="a-quick-rewind">A quick rewind!!<a hidden class="anchor" aria-hidden="true" href="#a-quick-rewind">#</a></h2>
-<p>In the previous post, we implemented the follow functionality between users, comment posts, and also like functionality. Also we learned about cypher language and how to use Pinecone vector storage for indexing data for similarity search for our RAG. In this post, we will look into:</p>
+<p>In my last post, we built some of the core social features for our app — users can now follow each other, comment on posts, and hit that like button. Along the way, I also shared a bit about working with Cypher (Neo4j’s query language) and how we used Pinecone as a vector store to index our data for similarity search, which is an important piece for our RAG (Retrieval-Augmented Generation) setup.</p>
+<p>For this post, I want to take things a step further. Here’s what we’ll be focusing on:</p>
 <ul>
-<li>Indexing the post data into our vector store.</li>
-<li>Will create the application with an LLM.</li>
-<li>create the ASK BROK functionality to know various details about the friends posts.</li>
+<li>Indexing the actual post data into our vector store, so we can start connecting the dots between content.</li>
+<li>Building out the application logic with an LLM integrated on top.</li>
+<li>Introducing the “ASK BROK” functionality — a feature that will let us query and discover details about our friends’ posts in a much smarter way.</li>
 </ul>
+<p>By the end of this, we should have the foundation of an AI-powered layer inside our app, where the system can understand and summarize what’s happening across your network rather than just showing raw posts.</p>
 <h2 id="large-language-model">Large Language Model🤖<a hidden class="anchor" aria-hidden="true" href="#large-language-model">#</a></h2>
 <p><strong>Large Language Models (LLMs)</strong> like Mistral’s <em><strong>Open Mistral 7B</strong></em> bring the power of natural language understanding and generation into your applications. Instead of manually writing complex rules for summarization, question answering, or sentiment analysis, you can simply provide a prompt and let the model handle the heavy lifting.
 For example, if you want to summarize posts and analyze sentiment, a traditional approach would require separate steps:</p>
@@ -177,6 +174,19 @@ Mistral AI provides open, production-ready LLMs, including Open Mistral 7B, a li
 </ul>
 <blockquote>
 <p>Also Mistral is Home made in European Union😀🇪🇺</p></blockquote>
+<p><strong>Large Language Models (LLMs)</strong> like Mistral’s <em><strong>Open Mistral 7B</strong></em> make it possible to bring natural language understanding and generation directly into your applications. Instead of hardcoding complex pipelines for tasks like summarization, question answering, or sentiment analysis, you can hand off the heavy lifting to the model with just a prompt.</p>
+<p>Take sentiment analysis and summarization as an example. Traditionally, you’d need to:</p>
+<ul>
+<li>Preprocess the raw text</li>
+<li>Run it through a separate sentiment analysis model</li>
+<li>Write custom logic for summarization</li>
+</ul>
+<p>That’s three separate steps. With an LLM, you can collapse all of this into one natural language instruction like:</p>
+<p><strong>“Summarize the posts and analyze the sentiment.”</strong></p>
+<p>The model understands both tasks in a single request and returns structured, human-like output. That flexibility is why LLMs are becoming a core part of modern backend systems.</p>
+<p>Why Mistral Open Mistral 7B?</p>
+<p>Mistral AI offers open, production-ready LLMs, and Open Mistral 7B is one of their most practical releases. It’s lightweight yet powerful, designed for speed and cost-efficiency, and runs smoothly in the cloud through their API. Whether you’re building chatbots, analytics pipelines, or backend services, it integrates cleanly without demanding huge infrastructure.</p>
+<p>And here’s a fun detail — Mistral is built in the <strong>European Union 😀🇪🇺</strong>. So if you’ve been looking for an open, homegrown alternative in the LLM space, this is a solid option to explore.</p>
 <h2 id="getting-started-with-mistral-ai">Getting Started with Mistral AI<a hidden class="anchor" aria-hidden="true" href="#getting-started-with-mistral-ai">#</a></h2>
 <p>Before you can start using API, you need two things:</p>
 <ul>
@@ -217,7 +227,7 @@ Copy the generated key — this is what you’ll use to authenticate requests.</
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">authentication</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">username</span>: <span style="color:#ae81ff">neo4j</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">password</span>: <span style="color:#ae81ff">demo</span>
-</span></span></code></pre></div><p>Add required dependencies to gradle:</p>
+</span></span></code></pre></div><h2 id="add-required-dependencies-to-gradle">Add required dependencies to gradle:<a hidden class="anchor" aria-hidden="true" href="#add-required-dependencies-to-gradle">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>dependencyManagement <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>	imports <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>		mavenBom <span style="color:#e6db74">&#34;org.springframework.ai:spring-ai-bom:$springAiVersion&#34;</span>
@@ -239,7 +249,9 @@ Copy the generated key — this is what you’ll use to authenticate requests.</
 </span></span><span style="display:flex;"><span>	implementation <span style="color:#e6db74">&#39;org.springframework.ai:spring-ai-mistral-ai-spring-boot-starter&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>once we add the dependencies, we need to add java code for getting the post for a user with userId to store in vector datanbase from the neo4j database:</p>
+</span></span></code></pre></div><h2 id="index-posts-in-pinecone-vector-storage">Index posts in pinecone vector storage<a hidden class="anchor" aria-hidden="true" href="#index-posts-in-pinecone-vector-storage">#</a></h2>
+<p>Once the dependencies are in place, the next step is to write some Java code that can pull posts for a given user (based on their userId) from our Neo4j database. These posts will then be stored in the vector database so they can later be indexed and retrieved efficiently.</p>
+<p>This step acts as the bridge between our graph database and the vector store — Neo4j handles the relationships and connections between users/posts, while the vector database gives us the power to perform similarity searches and semantic queries on the actual content.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/getposts/{userId}&#34;</span>)
 </span></span><span style="display:flex;"><span>    Mono<span style="color:#f92672">&lt;</span>Boolean<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllPosts</span>(<span style="color:#a6e22e">@PathVariable</span> Long userId){
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> postRepository.<span style="color:#a6e22e">getAllPostsForUser</span>(userId)
@@ -261,7 +273,8 @@ Copy the generated key — this is what you’ll use to authenticate requests.</
 </span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></div><p>After executing this, we will have the posts indexed for the user in the pinecone db.</p>
 <p><img alt="temp-Image-Rh-GBh-N.avif" loading="lazy" src="https://imgpx.com/NfxFy3KXCLs2.png"></p>
-<p>Now we need to implement and endpoint for prompting BROK for Augment Retreiving the data from vector storage.</p>
+<p>Now that we have our posts indexed in the vector store, the next step is to expose an endpoint that allows us to prompt BROK. This endpoint will be responsible for performing retrieval-augmented generation (RAG): fetching the most relevant data from the vector storage and passing it along with the user’s query to the LLM.</p>
+<p>With this setup, whenever someone asks BROK a question, the system doesn’t just rely on the model’s general knowledge — it augments the response with actual context pulled from our friends’ posts. That’s what makes the answers more accurate, grounded, and useful.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#a6e22e">@RequestMapping</span>(<span style="color:#e6db74">&#34;/askbrok/{userId}&#34;</span>)
 </span></span><span style="display:flex;"><span>    Mono<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">askBrok</span>(<span style="color:#a6e22e">@PathVariable</span> String userId, <span style="color:#a6e22e">@RequestParam</span> String prompt){
 </span></span><span style="display:flex;"><span>
@@ -291,22 +304,30 @@ Copy the generated key — this is what you’ll use to authenticate requests.</
 </span></span></code></pre></div><p>once we have the functionality set up, if we hit the endpoint with the following prompt, the output we get is:
 <img alt="temp-Imageb-Tainr.avif" loading="lazy" src="https://screenshot-2025-08-31-at-17-42-17.tiiny.site/Screenshot-2025-08-31-at-17-42-17.png"></p>
 <h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
-<p>🚦 Wrapping Up (Finally 😅)</p>
-<p>Whew! If you’ve made it this far — hats off 🧢 to you. This post is already clocking in at over 10+ minutes of reading, and we’ve covered a lot:</p>
+<p>🚦 Wrapping Up the Series (For Real This Time 😅)</p>
+<p>And just like that… we’ve reached the end of this little adventure! It’s been a fun ride building out our mini social platform step by step. Over the course of this series, we’ve:</p>
 <ul>
-<li>Built a basic social media backend with Neo4j and Spring WebFlux</li>
-<li>Implemented core features like post creation, comments, and likes</li>
-<li>Connected the dots for vector storage using Pinecone and OpenAI embeddings</li>
+<li>Designed a social backend with Neo4j and Spring WebFlux</li>
+<li>Added the essential social features — posts, comments, likes, and follows</li>
+<li>Explored Cypher queries and how graph relationships give us flexibility</li>
+<li>Plugged into Pinecone and embeddings to power similarity search</li>
+<li>Layered on LLMs to make the system smarter and more interactive</li>
+<li>And finally, brought it all together with BROK, our own “poor man’s GROK” 🤖</li>
 </ul>
-<p>I initially planned to introduce <a href="https://spring.io/projects/spring-ai">Spring AI</a> here too… but that would turn this post into a mini eBook! So, let’s hit pause for now and leave that for the next chapter. If you’re curious, check out the <a href="https://docs.spring.io/spring-ai/reference/">Spring AI documentation</a> for a sneak peek at what’s coming next.</p>
-<p>🚀 What’s Next?</p>
-<p>In the next post, we’ll roll up our sleeves and build our own “poor man’s GROK”— we  will name it <strong>BROK</strong> 😄.</p>
+<p>This project started as a small experiment, but by the end, it turned into a playground for mixing social graph data, vector databases, and generative AI. For me, the most exciting part was watching how these technologies actually complement each other in practice — graph DBs for relationships, vectors for semantics, and LLMs for intelligence.</p>
+<h2 id="-whats-next">🚀 What’s Next?<a hidden class="anchor" aria-hidden="true" href="#-whats-next">#</a></h2>
+<p>While this is the last entry in this series, it’s by no means the end. If you’ve followed along, you now have a solid foundation to keep hacking on top of:</p>
+<ul>
+<li>Extend BROK with richer prompts and multi-turn conversations</li>
+<li>Experiment with Spring AI if you want tighter Spring Boot + LLM integration</li>
+<li>Or even take the whole thing mobile with a React Native frontend and hook it up to the backend we built here</li>
+</ul>
+<p>Thanks for tagging along through this series — it’s been a long one, and if you’re reading this, you’re officially part of the “made it to the credits” club 🍿.</p>
+<p>All the code for the series lives here 👉 <a href="https://github.com/gokintosh/InstaGrat/tree/rag-data-seeding"><strong>github</strong></a>.
+.</p>
+<p>This is the end of the series, but not the end of the journey. Keep experimenting, keep learning, and who knows… maybe BROK 2.0 will be smarter than we expect 😉</p>
 <hr>
-<p>Thanks for following along! 🚀<br>
-Keep experimenting, building, and sharing your progress. So, I’ll wrap up this blog here. We’ve covered quite a bit today! You can find all the code for this part here 👉 <a href="https://github.com/gokintosh/InstaGrat/tree/rag-data-seeding"><strong>github</strong></a>.</p>
-<p>The next part of this series will be available as soon as it’s ready. Stay tuned — it’s coming soon!</p>
-<hr>
-<p><img alt="Geek Celebration GIF" loading="lazy" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"></p>
+<p><img alt="Geek Celebration GIF" loading="lazy" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXYwYzBoczQ4ODdicDAwZ2lsb2h1N252a2N2Z20yaDU3cTVqYXJpNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1J3CbFgn5o7DGRuE/giphy.gif"></p>
 <p>Happy coding! 🧑‍💻✨</p>
 
 

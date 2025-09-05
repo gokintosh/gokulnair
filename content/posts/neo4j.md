@@ -1,6 +1,6 @@
 ---
 title: "Real World Runs on Graphs!!📈 : A Hands-On Intro to Neo4j (Part 1)"
-date: 2025-07-17T11:30:03+00:00
+date: 2025-07-20T11:30:03+00:00
 # weight: 1
 # aliases: ["/first"]
 tags: ["Database","Spring boot","graph"]
