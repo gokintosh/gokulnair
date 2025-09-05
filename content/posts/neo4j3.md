@@ -49,19 +49,6 @@ By the end of this, we should have the foundation of an AI-powered layer inside 
 
 ## Large Language Model🤖
 
-**Large Language Models (LLMs)** like Mistral’s ***Open Mistral 7B*** bring the power of natural language understanding and generation into your applications. Instead of manually writing complex rules for summarization, question answering, or sentiment analysis, you can simply provide a prompt and let the model handle the heavy lifting.
-For example, if you want to summarize posts and analyze sentiment, a traditional approach would require separate steps:
-- Preprocessing text
-- Running sentiment analysis via a trained ML model
-- Writing custom summarization logic
-With an **LLM**, you just send a natural language prompt such as:
-"Summarise the posts and analyze the sentiment."
-The model understands both tasks in a single request and returns structured, human-like output. This flexibility is why LLMs are increasingly integrated into modern backends.
-Choosing Mistral Open Mistral 7B
-Mistral AI provides open, production-ready LLMs, including Open Mistral 7B, a lightweight yet powerful model you can run in the cloud through their API. It’s optimized for speed, cost-efficiency, and can be integrated seamlessly into applications like chatbots, analytics pipelines, or backend services.
-
-> Also Mistral is Home made in European Union😀🇪🇺
-
 **Large Language Models (LLMs)** like Mistral’s ***Open Mistral 7B*** make it possible to bring natural language understanding and generation directly into your applications. Instead of hardcoding complex pipelines for tasks like summarization, question answering, or sentiment analysis, you can hand off the heavy lifting to the model with just a prompt.
 
 Take sentiment analysis and summarization as an example. Traditionally, you’d need to:
