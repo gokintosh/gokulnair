@@ -72,6 +72,7 @@ And here’s a fun detail — Mistral is built in the **European Union 😀🇪�
 Before you can start using API, you need two things:
 - A Mistral AI Account
 - An API Key
+
 Step 1: Create a Mistral AI Account
 * Go to Mistral AI Console.
 * Sign up using your email or GitHub/Google account.
